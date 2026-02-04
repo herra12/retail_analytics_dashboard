@@ -113,29 +113,7 @@ SHOW CREATE TABLE fact_sales;
 ALTER TABLE fact_sales
 DROP FOREIGN KEY fact_sales_ibfk_3;
 DROP TABLE dim_location;
-
--- verification des doublons dans la table customer 
-
-SELECT customer_code , COUNT(*) 
-FROM dim_customer
-group by customer_code 
-HAVING count(*) > 1;
-
--- verification des doublons dans la table product 
-
-SELECT product_name , category , COUNT(*)
-FROM dim_product 
-group by product_name , category 
-HAVING count(*) >1 ; 
-
--- verification des valeurs manquantes dans la table de fait 
-
-SELECT *
-FROM fact_sales 
-WHERE customer_id IS NULL 
-      OR product_id IS NULL 
-      OR location_id IS NULL;
-      
+        
 -- vue avec tous les informations des ventes 
 CREATE OR REPLACE VIEW sales_view AS
 SELECT 
