@@ -19,3 +19,12 @@ and automate customer subscription status prediction.
 - Power BI
 - Scikit-learn
 - Apache Airflow
+
+## Pipeline Automation
+Apache Airflow is used to orchestrate the entire data pipeline.
+The DAG automates the following steps:
+- Feature engineering
+- Machine Learning model training
+- Customer subscription status prediction generation
+This automation ensures a reliable, reproducible workflow
+ready for scheduled execution.
