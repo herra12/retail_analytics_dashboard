@@ -1,24 +1,3 @@
-SELECT
-    c.customer_id,
-    p.product_id,
-    l.location_id,
-    s.`Purchase Amount (USD)`,
-    s.`Review Rating`,
-    s.`Discount Applied`,
-    s.`Promo Code Used`,
-    s.`Payment Method`,
-    s.`Shipping Type`
-FROM retail_db.shopping_behavior_updated s
-JOIN dim_customer c
-    ON s.`Customer ID` = c.customer_code
-JOIN dim_product p
-    ON s.`Item Purchased` = p.product_name
-   AND s.Category = p.category
--- on ignore Size, Color, Season au début pour insérer
-JOIN dim_locationn l
-    ON s.Location = l.city;
-
-
 SELECT customer_code , COUNT(*) 
 FROM dim_customer
 group by customer_code 
